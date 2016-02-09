@@ -1,4 +1,4 @@
-## Agnamstore build by Laravel PHP Framework
+## Agnamstore build with Laravel PHP Framework
 
 ## Installation :
  - Installer les dépendances avec : composer install ou update
