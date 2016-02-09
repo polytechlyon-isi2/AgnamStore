@@ -1,10 +1,10 @@
-## Agnamstore build with Laravel PHP Framework
+# Agnamstore build with Laravel PHP Framework
 
     Projet réaliser à Polytech en cours ISI2 avec le Professeur Batiste Pesquet (bpesquet.fr).
     Sujet : Site d'E-commerce basé sur le framework Laravel.
     Théme : Culture japonaise.
 
-# Installation :
+## Installation :
  - Installer les dépendances avec : composer install ou update
  - Copier .env.example en .env
  - Utiliser le script sql  database/crt_base.sql
