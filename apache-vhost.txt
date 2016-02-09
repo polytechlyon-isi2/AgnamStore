@@ -1,0 +1,25 @@
+## Do not forget to Copy the line write after if it's not write in httpd-vhosts.conf
+
+<VirtualHost *:80>
+    DocumentRoot "C:\xampp\htdocs"
+    ServerName localhost
+</VirtualHost>
+
+## The website host for laravel project
+
+<VirtualHost *:80>
+
+    ServerAdmin agory.contact@gmail.com
+
+    DocumentRoot "D:\Xampp\htdocs\AgnamStore\public"
+    ServerName agnamstore.dev
+	ServerAlias www.agnamstore.dev
+    <Directory "D:\Xampp\htdocs\AgnamStore\public">
+        Options -Indexes +FollowSymLinks
+        AllowOverride all
+    </Directory>
+
+    ## Log Location
+    ## ErrorLog /home/dev/logs/error.log
+    ## CustomLog /home/dev/logs/access.log combined
+</VirtualHost>
