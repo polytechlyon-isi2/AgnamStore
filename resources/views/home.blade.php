@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             @foreach($types as $type)
-                @include('item.items', ['type'=>$type,'products'=> $type->products])
+                @include('product.products', ['type'=>$type,'products'=> $type->products])
             @endforeach
         </div>
     </div>

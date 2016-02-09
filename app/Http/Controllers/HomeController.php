@@ -31,8 +31,5 @@ class HomeController extends Controller
         return view('home', array('types' => $types));
     }
 
-    private function productByType()
-    {
-
-    }
+    //TODO Gestion de la mise à jour du profil
 }
