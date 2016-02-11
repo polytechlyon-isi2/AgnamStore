@@ -2,7 +2,7 @@
 
 Projet réalisé à [Polytech Lyon](http://polytech.univ-lyon1.fr/) en cour **ISI2** avec le Professeur [Batiste Pesquet](http://bpesquet.fr/).  
 **Sujet :** Site d'E-commerce basé sur le framework Laravel.  
-**Théme :** Culture japonaise.  
+**Théme :** Culture japonaise(Manga, Animé, Film d'animation, Light Novel).  
 
 ## Installation :
  - Installer les dépendances avec : composer install ou update
