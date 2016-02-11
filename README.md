@@ -1,6 +1,6 @@
 # Agnamstore build with Laravel PHP Framework
 
-    Projet réaliser à Polytech en cours ISI2 avec le Professeur [Batiste Pesquet](http://bpesquet.fr).
+    Projet réaliser à [Polytech Lyon](http://polytech.univ-lyon1.fr/) en cours ISI2 avec le Professeur [Batiste Pesquet](http://bpesquet.fr/).
     Sujet : Site d'E-commerce basé sur le framework Laravel.
     Théme : Culture japonaise.
 
