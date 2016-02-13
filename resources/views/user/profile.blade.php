@@ -1,6 +1,5 @@
 @extends('user.settings')
 @section('settingTittle','Profil')
-
 @section('form')
     {!!  Form::model($user,['method' => 'put'])!!}
     <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">

@@ -1,7 +1,5 @@
 @extends('user.settings')
-
 @section('settingTittle','Mot de passe')
-
 @section('form')
     {!!  Form::model($user,['method' => 'put'])!!}
     <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">

@@ -29,7 +29,7 @@ class UserController extends Controller
     public function profile(Request $request)
     {
         $user = Auth::user();
-        return view('user.profile', compact('user'));
+        return view('user.profile', ['user' => $user, 'settingsMenu' => 1]);
     }
 
     public function updateProfile(Request $request)
@@ -51,7 +51,7 @@ class UserController extends Controller
     public function password(Request $request)
     {
         $user = Auth::user();
-        return view('user.password', compact('user'));
+        return view('user.password', ['user' => $user, 'settingsMenu' => 2]);
     }
 
     public function updatePassword(Request $request)
