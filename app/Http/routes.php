@@ -22,8 +22,11 @@
 |
 */
 
-Route::group(['middleware' => ['web', 'auth']], function () {
-
+Route::group(['middleware' => ['web','auth']], function () {
+    Route::get('/settings/profile', ['as' => 'user.profile','uses' =>'UserController@profile']);
+    Route::put('/settings/profile', ['as' => 'user.profile','uses' =>'UserController@updateProfile']);
+    Route::get('/settings/password', ['as' => 'user.password','uses' =>'UserController@password']);
+    Route::put('/settings/password', ['as' => 'user.password','uses' =>'UserController@updatePassword']);
 });
 
 Route::group(['middleware' => 'web'], function () {

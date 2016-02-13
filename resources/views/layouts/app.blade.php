@@ -57,6 +57,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('user.profile') }}"><i class="fa fa-btn fa-user"></i>Mon profil</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Deconnexion</a></li>
                         </ul>
                     </li>
@@ -65,7 +66,13 @@
         </div>
     </div>
 </nav>
-
+@if(Session::has('success'))
+    <div class="container">
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    </div>
+    @endif
 @yield('content')
 
         <!-- JavaScripts -->
