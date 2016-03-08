@@ -40,7 +40,16 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/') }}">Genre</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Genre
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="">Genre 1</a></li>
+
+                    </ul>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -72,7 +81,7 @@
             {{ Session::get('success') }}
         </div>
     </div>
-    @endif
+@endif
 @yield('content')
 
         <!-- JavaScripts -->
