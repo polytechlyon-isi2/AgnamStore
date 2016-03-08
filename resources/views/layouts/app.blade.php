@@ -46,8 +46,10 @@
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="">Genre 1</a></li>
-
+                        <li><a href="{{ route('showProductsByType', 1) }}">Manga</a></li>
+                        <li><a href="{{ route('showProductsByType', 2) }}">Anime</a></li>
+                        <li><a href="{{ route('showProductsByType', 3) }}">Light Novel</a></li>
+                        <li><a href="{{ route('showProductsByType', 4) }}">Film</a></li>
                     </ul>
                 </li>
             </ul>

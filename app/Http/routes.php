@@ -34,3 +34,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/', 'HomeController@index');
 });
+
+Route::get('/type/{id}', ['as' => 'showProductsByType','uses' =>'ProductController@showProductsByType']);
+
+Route::get('/product/{id}', ['as' => 'showProductDetails','uses' =>'ProductController@showProductDetails']);

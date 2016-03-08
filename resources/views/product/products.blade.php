@@ -9,7 +9,7 @@
             @foreach($products as $product)
                 <div class="col-sm-4 col-md-3">
                     <div class="thumbnail-agnam">
-                        <a href="/items/{{ $product->id }}"><img class="item-img"
+                        <a href="{{ route ('showProductDetails', $product->id) }} "><img class="item-img"
                                                                  src="/images/produit/{{ $product->image }}"
                                                                  title="{{ $product->name }}"/></a>
                         <div class="caption">
@@ -18,7 +18,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-5"><a class="btn btn-agnam"
-                                                         href="/items/{{ $product->id }}">Détail</a></div>
+                                                         href="{{ route('showProductDetails', $product->id) }}">Détail</a></div>
                                 <div class="col-sm-5"><a class="btn btn-warning"
                                                          href="/cart/item/{{ $product->id }}">{{ $product->price }} €
                                         <span class="glyphicon glyphicon-shopping-cart"></span></a></div>
