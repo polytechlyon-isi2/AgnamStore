@@ -29,10 +29,17 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::put('/settings/password', ['as' => 'user.password','uses' =>'UserController@updatePassword']);
 });
 
+Route::group(['as' => 'admin.','namespace' => 'Admin','prefix' => 'admin','middleware' => ['web','admin']], function () {
+    Route::get('', ['as' => 'index','uses' =>'AdminController@indexAction']);
+    Route::get('user', ['as' => 'user','uses' =>'AdminController@userAction']);
+
+});
+
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/', 'HomeController@index');
+    Route::get('/', ['as' => 'home','uses' =>'HomeController@index']);
+
 });
 
 Route::get('/type/{id}', ['as' => 'showProductsByType','uses' =>'ProductController@showProductsByType']);
