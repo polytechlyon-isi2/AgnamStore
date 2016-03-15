@@ -1,4 +1,4 @@
-@extends('user.settings')
+@extends('admin.user.settings')
 @section('settingTittle','Mot de passe')
 @section('form')
     @include('user.form.password')

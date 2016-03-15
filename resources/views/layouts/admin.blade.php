@@ -51,21 +51,14 @@
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                    </li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }} <span
+                            class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ route('user.profile') }}"><i class="fa fa-btn fa-user"></i>Mon profil</a></li>
+                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
@@ -73,10 +66,10 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="#TODO"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <a href="{{route('admin.index')}}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#TODO"><i class="fa fa-fw fa-bar-chart-o"></i> Utilisateur</a>
+                    <a href="{{route('admin.user')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Utilisateur</a>
                 </li>
                 <li>
                     <a href="#TODO"><i class="fa fa-fw fa-table"></i> Produit</a>

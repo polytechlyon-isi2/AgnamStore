@@ -23,16 +23,24 @@
 */
 
 Route::group(['middleware' => ['web','auth']], function () {
-    Route::get('/settings/profile', ['as' => 'user.profile','uses' =>'UserController@profile']);
-    Route::put('/settings/profile', ['as' => 'user.profile','uses' =>'UserController@updateProfile']);
-    Route::get('/settings/password', ['as' => 'user.password','uses' =>'UserController@password']);
-    Route::put('/settings/password', ['as' => 'user.password','uses' =>'UserController@updatePassword']);
+    Route::get('/settings/profile', ['as' => 'user.profile','uses' =>'UserController@profileAction']);
+    Route::put('/settings/profile', ['as' => 'user.profile','uses' =>'UserController@updateProfileAction']);
+    Route::get('/settings/password', ['as' => 'user.password','uses' =>'UserController@passwordAction']);
+    Route::put('/settings/password', ['as' => 'user.password','uses' =>'UserController@updatePasswordAction']);
 });
 
 Route::group(['as' => 'admin.','namespace' => 'Admin','prefix' => 'admin','middleware' => ['web','admin']], function () {
     Route::get('', ['as' => 'index','uses' =>'AdminController@indexAction']);
-    Route::get('user', ['as' => 'user','uses' =>'AdminController@userAction']);
-
+    Route::get('users', ['as' => 'user','uses' =>'AdminController@userAction']);
+    Route::group(['as' => 'user.','prefix' => 'user'], function(){
+        Route::get('{id}/profile', ['as' => 'profile', 'uses' => 'AdminController@profileAction']);
+        Route::get('{id}/profile', ['as' => 'profile', 'uses' => 'AdminController@profileAction']);
+        Route::put('{id}/profile', ['as' => 'profile', 'uses' => 'AdminController@updateProfileAction']);
+        Route::get('{id}/password', ['as' => 'password', 'uses' => 'AdminController@passwordAction']);
+        Route::put('{id}/password', ['as' => 'password', 'uses' => 'AdminController@updatePasswordAction']);
+        Route::get('{id}/password', ['as' => 'role', 'uses' => 'AdminController@roleAction']);
+        Route::put('{id}/password', ['as' => 'role', 'uses' => 'AdminController@updateRoleAction']);
+    });
 });
 
 Route::group(['middleware' => 'web'], function () {
