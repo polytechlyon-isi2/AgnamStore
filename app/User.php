@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->role == "ROLE_ADMIN";
     }
+    public function getCart()
+    {
+        return Cart::where(['User_id'=>$this->id])->get();
+    }
 }

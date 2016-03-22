@@ -1,11 +1,11 @@
 
-{!!  Form::model($user,['method' => 'put'])!!}
+{!!  Form::open(['method' => 'put'])!!}
 <div class="form-group {{ $errors->has('role') ? ' has-error' : '' }}">
-    {!! Form::label('role','Pseudo') !!}
-    {!! Form::select('role', array('ROLE_USER' => 'Utilisateur', 'ROLE_ADMIN' => 'Administrateur'), 'ROLE_USER') !!}
+    {!! Form::label('role','Rôle') !!}
+    {!! Form::select('role', array('ROLE_USER' => 'Utilisateur', 'ROLE_ADMIN' => 'Administrateur'), $user->role,['class' => 'form-control']) !!}
     @if ($errors->has('role'))
         <span class="help-block">
-            <strong>{{ $errors->first('name') }}</strong>
+            <strong>{{ $errors->first('role') }}</strong>
         </span>
     @endif
 </div>

@@ -8,9 +8,9 @@
                     <div class="panel-body">
                         <div class="col-md-4">
                             <ul class="nav nav-pills nav-stacked">
-                                <li role="presentation" class="@if($settingsMenu == 1)active @endif"><a href="{{route('user.profile')}}">Profil</a></li>
-                                <li role="presentation" class="@if($settingsMenu == 2)active @endif"><a href="{{route('user.password')}}">Mot de passe</a></li>
-                                <li role="presentation" class="@if($settingsMenu == 2)active @endif"><a href="{{route('user.password')}}">Role</a></li>
+                                <li role="presentation" class="@if($settingsMenu == 1)active @endif"><a href="{{route('admin.user.profile',$user->id)}}">Profil</a></li>
+                                <li role="presentation" class="@if($settingsMenu == 2)active @endif"><a href="{{route('admin.user.password',$user->id)}}">Mot de passe</a></li>
+                                <li role="presentation" class="@if($settingsMenu == 3)active @endif"><a href="{{route('admin.user.role',$user->id)}}">Role</a></li>
                             </ul>
                         </div>
                         <div class="col-md-8">

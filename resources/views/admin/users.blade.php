@@ -22,7 +22,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
                         <td>
-                            <a href="#todo" class="btn btn-info btn-xs" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="{{route('admin.user.profile',$user->id)}}" class="btn btn-info btn-xs" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
                             <button type="button" class="btn btn-danger btn-xs" title="Delete" data-toggle="modal" data-target="#userDialog{{ $user->id }}"><span class="glyphicon glyphicon-remove"></span>
                             </button>
                             <div class="modal fade" id="userDialog{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                            <a href="#todo" class="btn btn-danger">Confirmer</a>
+                                            <a href="{{route('admin.user.del',$user->id)}}" class="btn btn-danger">Confirmer</a>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->

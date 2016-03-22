@@ -31,7 +31,7 @@
                             <br/>
                             <!-- <a class="btn btn-agnam" href="/items/type={{ $product->type_id }}" >Retour </a>  FORMAT SANT JS-->
                             <a class="btn btn-agnam" href="javascript:history.go(-1)">Retour </a>
-                            <a class="btn btn-warning" href="/cart/item/{{ $product->id }}">{{ $product->price }} € <span
+                            <a class="btn btn-warning" href="{{ route('user.cart.add',$product->id)}}">{{ $product->price }} € <span
                                         class="glyphicon glyphicon-shopping-cart"></span></a>
                         </div>
                     </div>

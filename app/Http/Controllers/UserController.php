@@ -25,7 +25,7 @@ class UserController extends Controller
 
     }
 
-    public function profileAction(Request $request)
+    public function profileAction()
     {
         $user = Auth::user();
         return view('user.profile', ['user' => $user, 'settingsMenu' => 1]);
@@ -34,7 +34,7 @@ class UserController extends Controller
     public function updateProfileAction(Request $request)
     {
         $user = Auth::user();
-        return $this->updateProfil($request,$user);
+        return $this->updateProfile($request,$user);
     }
 
 
