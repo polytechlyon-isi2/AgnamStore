@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Traits\ProductTrait;
 use App\Http\Traits\UserTrait;
 use App\Product;
 use App\User;
@@ -10,7 +11,7 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    use UserTrait;
+    use UserTrait,ProductTrait;
 
     /**
      * Show index of administration dashboard.
@@ -120,17 +121,38 @@ class AdminController extends Controller
     }
 
     /**
+     * Show the form to update role.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function addAction()
+    {
+        $user = new User();
+        return view('admin.user.add', ['user' => $user]);
+    }
+
+    /**
+     * Update role and redirect to the form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function addCheckAction(Request $request)
+    {
+        return $this->addUser($request);
+    }
+
+    /**
      * Delete user and redirect to user list (show all users).
      *
      * @return \Illuminate\Http\Response
      */
     public function deleteAction($id)
     {
-        $user = User::find(1);
+        $user = User::find($id);
         if(!$user){
             return redirect()->route('admin.user');
         }
-        $this->delete($user);
+        $this->deleteUser($user);
         return redirect()->route('admin.user');
     }
 
@@ -146,5 +168,70 @@ class AdminController extends Controller
         $products = Product::with('type')->get();
         return view('admin.products',compact('products'));
     }
-    //TODO Gestion ajout suppression et modification Product
+
+    /**
+     * Show the form to add a product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productAddAction()
+    {
+        $product = new Product();
+        return view('admin.product.form',compact('product'));
+    }
+
+    /**
+     * add a product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function checkProductAddAction(Request $request)
+    {
+        $product = new Product();
+        return $this->saveProduct($request,$product);
+    }
+
+    /**
+     * Show the form to edit a product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productUpdateAction($id)
+    {
+        $product = Product::find($id);
+
+        if(!$product){
+            return redirect()->route('admin.product');
+        }
+        return view('admin.product.form',compact('product'));
+    }
+
+    /**
+     * Edit a product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function checkProductUpdateAction(Request $request,$id)
+    {
+        $product = Product::find($id);
+        if(!$product){
+            return redirect()->route('admin.product');
+        }
+        return $this->saveProduct($request,$product);
+    }
+
+    /**
+     * Delete product and redirect to user list (show all users).
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productDeleteAction($id)
+    {
+        $product = Product::find($id);
+        if(!$product){
+            return redirect()->route('admin.product');
+        }
+        $this->deleteProduct($product);
+        return redirect()->route('admin.product');
+    }
 }

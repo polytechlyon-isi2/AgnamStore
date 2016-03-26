@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="col-lg-12">
-        <h2>Utilisateur <a href="{{route('user.add')}}"></a></h2>
+        <h2>Utilisateur <a href="{{route('admin.user.add')}}" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter</a></h2>
         <div class="table-responsive">
             @if($users)
             <table class="table table-hover table-striped">

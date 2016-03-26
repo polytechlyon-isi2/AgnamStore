@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="col-lg-12">
-        <h2>Utilisateur</h2>
+        <h2>Produit <a href="{{route('admin.product.add')}}" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter</a></h2>
         <div class="table-responsive">
             @if($products)
                 <table class="table table-hover table-striped">
@@ -24,7 +24,7 @@
                             <td>{{ $product->author }}</td>
                             <td>{{ $product->type->label }}</td>
                             <td>
-                                {{--<a href="{{route('admin.user.profile',$product->id)}}" class="btn btn-info btn-xs" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
+                                <a href="{{route('admin.product.update',$product->id)}}" class="btn btn-info btn-xs" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
                                 <button type="button" class="btn btn-danger btn-xs" title="Delete" data-toggle="modal" data-target="#userDialog{{ $product->id }}"><span class="glyphicon glyphicon-remove"></span>
                                 </button>
                                 <div class="modal fade" id="userDialog{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -39,12 +39,12 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                                <a href="{{route('admin.user.del',$product->id)}}" class="btn btn-danger">Confirmer</a>
+                                                <a href="{{route('admin.product.del',$product->id)}}" class="btn btn-danger">Confirmer</a>
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
-                            --}}</td>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Traits;
 
-use Illuminate\Foundation\Auth\User;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -67,7 +67,28 @@ trait UserTrait
         return redirect()->route(Route::currentRouteName());
     }
 
-    private function delete(User $user){
+    private function addUser(Request $request){
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|max:255|unique:users,name',
+            'email' => 'required|email|max:255|unique:users,email',
+            'password' => 'required|confirmed|min:6',
+            'role' => 'required',
+        ]);
+        if($validator->fails()){
+            return redirect(route(Route::currentRouteName()))->withErrors($validator->errors());
+        } else{
+            User::create([
+                'email' => $request->get('email'),
+                'name' => $request->get('name'),
+                'password' => bcrypt($request->get('password')),
+                'role' => $request->get('role')
+            ]);
+            Session::flash('success',"L'utilisateur a bien été crée.");
+        }
+        return redirect()->route(Route::currentRouteName());
+    }
+
+    private function deleteUser(User $user){
         $user->delete();
     }
 }

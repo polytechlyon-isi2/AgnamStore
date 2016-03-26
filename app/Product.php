@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -14,7 +14,7 @@ class Product extends Model
         return $this->belongsTo('App\\ProductType','product_type_id');
     }
 
-    public function validate(array $data){
+    public static function validate(array $data){
         return Validator::make($data,[
             'name'              => 'required|max:255',
             'price'             => 'required',

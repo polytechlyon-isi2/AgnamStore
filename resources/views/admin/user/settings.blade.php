@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Paramétre : @yield('settingTittle')</div>
+                    <div class="panel-heading"><a href="{{route('admin.user')}}" class="btn btn-danger btn-xs"><i class="fa fa-chevron-left "></i>  Retour</a>&nbsp;&nbsp;&nbsp;&nbsp;Paramétre : @yield('settingTittle')</div>
                     <div class="panel-body">
                         <div class="col-md-4">
                             <ul class="nav nav-pills nav-stacked">
