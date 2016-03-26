@@ -12,4 +12,9 @@ class ProductType extends Model
     {
         return $this->hasMany('App\\Product');
     }
+
+    public function getFourLastProduct()
+    {
+        return Product::where(['product_type_id' => $this->id])->orderBy('created_at','desc')->take(4)->get();
+    }
 }

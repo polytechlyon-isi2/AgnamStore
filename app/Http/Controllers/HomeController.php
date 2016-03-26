@@ -21,15 +21,14 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application index.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $types = ProductType::with('Products')->get();
+        $types = ProductType::get();
         return view('home', array('types' => $types));
     }
 
-    //TODO Gestion de la mise à jour du profil
 }

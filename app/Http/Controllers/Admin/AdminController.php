@@ -11,17 +11,32 @@ class AdminController extends Controller
 {
     use UserUpdateTrait;
 
+    /**
+     * Show index of administration dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexAction()
     {
         return view('admin.index');
     }
 
+    /**
+     * Show all users for administrate them.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function userAction()
     {
         $users = User::get();
         return view('admin.users',compact('users'));
     }
 
+    /**
+     * Show the form to update profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function profileAction($id)
     {
         $user = User::find($id);
@@ -31,6 +46,11 @@ class AdminController extends Controller
         return view('admin.user.profile', ['user' => $user, 'settingsMenu' => 1]);
     }
 
+    /**
+     * update profile and redirect to the form.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function updateProfileAction(Request $request,$id)
     {
         $user = User::find($id);
@@ -40,6 +60,12 @@ class AdminController extends Controller
         return $this->updateProfile($request,$user);
     }
 
+
+    /**
+     * Show the form to update password.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function passwordAction($id)
     {
         $user = User::find($id);
@@ -49,6 +75,11 @@ class AdminController extends Controller
         return view('admin.user.password', ['user' => $user, 'settingsMenu' => 2]);
     }
 
+    /**
+     * Update password and redirect to the form.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function updatePasswordAction(Request $request,$id)
     {
         $user = User::find($id);
@@ -59,6 +90,11 @@ class AdminController extends Controller
 
     }
 
+    /**
+     * Show the form to update role.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function roleAction($id)
     {
         $user = User::find($id);
@@ -68,6 +104,11 @@ class AdminController extends Controller
         return view('admin.user.role', ['user' => $user, 'settingsMenu' => 3]);
     }
 
+    /**
+     * Update role and redirect to the form.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function updateRoleAction(Request $request,$id)
     {
         $user = User::find($id);
@@ -77,6 +118,11 @@ class AdminController extends Controller
         return $this->updateRole($request,$user);
     }
 
+    /**
+     * Delete user and redirect to user list (show all users).
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function deleteAction($id)
     {
         $user = User::find(1);
@@ -87,5 +133,4 @@ class AdminController extends Controller
         return redirect()->route('admin.user');
     }
     //TODO Gestion ajout suppression et modification Product
-    //TODO Gestion ajout suppression et modification User
 }

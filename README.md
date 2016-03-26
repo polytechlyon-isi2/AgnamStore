@@ -12,4 +12,14 @@ Projet réalisé à [Polytech Lyon](http://polytech.univ-lyon1.fr/) en cour **IS
  - Modifier .env pour qu'il utilise l'utilisateur et la database inscrits dans  database/crt_base.sql
  - Modifier **httpd-vhosts.conf** avec à l'aide de apache-vhost.txt présent dans la racine du projet
  - Modifier le nom de domaine dans le fichier host de windows C:\Windows\System32\drivers\etc\hosts
- - Lancer la commande  : **php artisan migrate** (à relancer en cas de pull et d'ajout de migration)
+ - Lancer la commande  : **php artisan migrate (à relancer en cas de pull et d'ajout de migration)
+ - Lancer la commande  : **php artisan db:seed** (Pour remplir la base de données)
+ 
+## Astuce :
+ - Base de données fraiche **php artisan migrate:refresh --seed** (avec les données pré-enregistrées)
+ 
+ 
+## Compte :
+ - mail : admin@agnamstore.com mdp : secret  (Administrateur)
+ - mail : client@agnamstore.com mdp : secret  (Utilisateur Lambda)
+

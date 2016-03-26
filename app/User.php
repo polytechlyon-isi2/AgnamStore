@@ -31,4 +31,5 @@ class User extends Authenticatable
     {
         return Cart::where(['User_id'=>$this->id])->get();
     }
+
 }
