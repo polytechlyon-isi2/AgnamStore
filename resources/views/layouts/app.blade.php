@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,6 +69,9 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            @if(Auth::user()->isAdmin())
+                                <li><a href="{{ route('admin.index') }}"><i class="fa-btn fa fa-wrench"></i>Administration</a></li>
+                            @endif
                             <li><a href="{{ route('user.profile') }}"><i class="fa fa-btn fa-user"></i>Mon profil</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Deconnexion</a></li>
                         </ul>

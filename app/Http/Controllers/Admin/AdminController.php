@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\UserUpdateTrait;
+use App\Http\Traits\UserTrait;
+use App\Product;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    use UserUpdateTrait;
+    use UserTrait;
 
     /**
      * Show index of administration dashboard.
@@ -131,6 +132,19 @@ class AdminController extends Controller
         }
         $this->delete($user);
         return redirect()->route('admin.user');
+    }
+
+
+
+    /**
+     * Show all products for administrate them.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productAction()
+    {
+        $products = Product::with('type')->get();
+        return view('admin.products',compact('products'));
     }
     //TODO Gestion ajout suppression et modification Product
 }

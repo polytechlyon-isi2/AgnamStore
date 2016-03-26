@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Traits;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
  * Date: 15/03/2016
  * Time: 15:33
  */
-trait UserUpdateTrait
+trait UserTrait
 {
     private function updatePassword(Request $request,User $user){
         $validator = Validator::make($request->all(),[

@@ -11,7 +11,7 @@ class Product extends Model
 
     public function type()
     {
-        return $this->belongsTo('App\\ProductType');
+        return $this->belongsTo('App\\ProductType','product_type_id');
     }
 
     public function validate(array $data){

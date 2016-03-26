@@ -20,7 +20,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-green">
-                <a href="#">
+                <a href="{{route('admin.product')}}">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -34,21 +34,4 @@
                 </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-yellow">
-                <a href="#">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div>Commandes</div>
-                        </div>
-                    </div>
-                </div>
-                </a>
-            </div>
-        </div>
-    </div>
 @endsection

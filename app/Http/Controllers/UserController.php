@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\UserTrait;
 
 
 /**
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     // Some method to update user
-    use UserUpdateTrait;
+    use UserTrait;
 
     /**
      * Create a new controller instance.

@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Traits;
 
-use App\Product;
-use Illuminate\Foundation\Auth\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Session;
+
 
 /**
  * Created by PhpStorm.
@@ -15,7 +13,7 @@ use Illuminate\Support\Facades\Session;
  * Date: 15/03/2016
  * Time: 15:33
  */
-trait ProductUpdateTrait
+trait ProductTrait
 {
     private function saveProduct(Request $request,Product $product){
         $validator = Product::validate($request->all());

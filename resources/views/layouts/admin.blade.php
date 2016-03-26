@@ -72,7 +72,7 @@
                     <a href="{{route('admin.user')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Utilisateur</a>
                 </li>
                 <li>
-                    <a href="#TODO"><i class="fa fa-fw fa-table"></i> Produit</a>
+                    <a href="{{route('admin.product')}}"><i class="fa fa-fw fa-table"></i> Produit</a>
                 </li>
             </ul>
         </div>
@@ -80,7 +80,13 @@
     </nav>
 
     <div id="page-wrapper">
-
+        @if(Session::has('success'))
+            <div class="container">
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            </div>
+        @endif
         <div class="container-fluid">
         @yield('content')
         </div>
