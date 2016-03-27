@@ -29,7 +29,8 @@ class User extends Authenticatable
     }
     public function getCart()
     {
-        return Cart::where(['User_id'=>$this->id])->get();
+
+        return Cart::where(['user_id'=>$this->id])->with('product')->get();
     }
 
 }

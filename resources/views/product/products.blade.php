@@ -19,9 +19,9 @@
                             <div class="row">
                                 <div class="col-sm-5"><a class="btn btn-agnam"
                                                          href="{{ route('showProductDetails', $product->id) }}">Détail</a></div>
-                                <div class="col-sm-5"><a class="btn btn-warning"
-                                                         href="/cart/item/{{ $product->id }}">{{ $product->price }} €
-                                        <span class="glyphicon glyphicon-shopping-cart"></span></a></div>
+                                <a class="btn btn-warning"
+                                   href="{{ route('user.cart.add',$product->id)}}">{{ $product->price }} € <span
+                                            class="glyphicon glyphicon-shopping-cart"></span></a>
                             </div>
                         </div>
                     </div>

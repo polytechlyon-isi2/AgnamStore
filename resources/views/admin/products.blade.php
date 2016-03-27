@@ -25,9 +25,9 @@
                             <td>{{ $product->type->label }}</td>
                             <td>
                                 <a href="{{route('admin.product.update',$product->id)}}" class="btn btn-info btn-xs" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
-                                <button type="button" class="btn btn-danger btn-xs" title="Delete" data-toggle="modal" data-target="#userDialog{{ $product->id }}"><span class="glyphicon glyphicon-remove"></span>
+                                <button type="button" class="btn btn-danger btn-xs" title="Delete" data-toggle="modal" data-target="#productDialog{{ $product->id }}"><span class="glyphicon glyphicon-remove"></span>
                                 </button>
-                                <div class="modal fade" id="userDialog{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="productDialog{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">

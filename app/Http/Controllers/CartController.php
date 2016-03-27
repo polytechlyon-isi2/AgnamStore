@@ -26,11 +26,17 @@ class CartController extends Controller
     {
         $product = Product::find($id);
         if($product){
-            Cart::create([
+            $cart = Cart::where([
                 'user_id' =>  Auth::user()->id,
-                'product_id' => $product->id,
-                'quantity' => 1
-            ]);
+                'product_id' => $product->id])->get();
+
+            if($cart->isEmpty()) {
+                Cart::create([
+                    'user_id' => Auth::user()->id,
+                    'product_id' => $product->id,
+                    'quantity' => 1
+                ]);
+            }
             Session::flash('success', "Le produit a bien été ajouté au panier.");
         } else {
             Session::flash('success', "Echec de l'ajout du produit au panier");
@@ -42,7 +48,7 @@ class CartController extends Controller
 
     public function delAction($id)
     {
-        $cart = Cart::Where(['User_id'=>Auth::user()->id,'product_id'=>$id])->get();
-        $cart->delete();
+        $cart = Cart::Where(['User_id'=>Auth::user()->id,'product_id'=>$id])->delete();
+        return redirect()->route('user.cart');
     }
 }
