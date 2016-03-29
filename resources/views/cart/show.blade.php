@@ -7,16 +7,21 @@
                 <thead>
                 <tr>
                     <th>Product</th>
-                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Prix total</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $sum = 0 ?>
                 @foreach($cart as $item)
-                    <?php $sum += $item->product->price ?>
+                    <?php $price = $item->product->price * $item->quantity ?>
+                    <?php $sum += $price ?>
                     <tr>
-                        <td>{{ $item->product->name }}</td>
+                        <td><a href="{{ route('showProductDetails', $item->product->id) }}">{{$item->product->name }}</a></td>
+                        <td><a href="{{route('user.cart.remove',$item->product->id)}}" class="btn btn-xs btn-info">-</a><span class="label label-primary">{{ $item->quantity }}</span><a href="{{route('user.cart.add',$item->product->id)}}" class="btn btn-xs btn-info">+</a></td>
                         <td>{{ $item->product->price }}</td>
+                        <td>{{ $price }}</td>
                         <td>
                             <a href="{{route('user.cart.del',$item->product->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>
                             </a>

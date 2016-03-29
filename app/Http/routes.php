@@ -31,6 +31,7 @@ Route::group(['as' => 'user.' ,'middleware' => ['web','auth']], function () {
 
     Route::get('/cart',['as'=>'cart' , 'uses' =>'CartController@showAction']);
     Route::get('/cart/add/{id}',['as'=>'cart.add' , 'uses' =>'CartController@addAction']);
+    Route::get('/cart/remove/{id}',['as'=>'cart.remove' , 'uses' =>'CartController@removeAction']);
     Route::get('/cart/del/{id}',['as'=>'cart.del' , 'uses' =>'CartController@delAction']);
 });
 
